@@ -1,0 +1,7 @@
+.DS_Store
+*.mp3
+node_modules/
+kalev/medium-images
+kalev/.dropbox
+kalev/small-images
+kalev/small-images-base64

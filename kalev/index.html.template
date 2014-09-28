@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html lang="en">
+  <head>
+    <title>מיכל ודור 16.5.14</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="medium-images/0285.jpg" property="og:image" />
+    <meta content="website" property="og:type">
+    <meta property="og:title" content="החתונה הקסומה של מיכל ודור">
+    <meta property="og:url" content="http://yashpe.com/kalev/">
+    <meta name="twitter:url" content="http://yashpe.com/kalev/">
+    <link   rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link   rel="icon" href="assets/favicon.png" type="image/x-icon">
+
+    HERE-COMES-CSS
+
+    <style>html, body { display: none; }</style>
+    <script>
+      if ( !navigator.userAgent.match(/(iPad|iPhone|iPod)/g) && navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+        if (confirm("דפדפן ספארי? לחץ כאן כדי להתקין דפדפן כרום ולהיות מאושר לנצח.")) {
+          top.location.href = "https://www.google.com/chrome/browser/";
+        }    
+        document.write("");
+      }
+      if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
+        if (confirm("דפדפן אינטאנט אקספלורר? לחץ כאן כדי להתקין דפדפן כרום ולהיות מאושר לנצח.")) {
+          top.location.href = "https://www.google.com/chrome/browser/";
+        }    
+        // $('body').html('<div style="font-size: 40px; direction: rtl;color:white;">דפדפן Internet Explorer לא נתמך.<br/>לצפיה השתמשי ב <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> או <a href="https://www.google.com/chrome/browser/">Chrome</a>.<br/><br/>כדאי לך...</div>');
+        document.write("");
+      }
+
+      window.preload = function(f,h) {
+        if (f == 0) window.original_title = document.title;
+        document.title = (f > h - 10) ? window.original_title : "טען " + f + " מתוך " + h;
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <img src="medium-images/0285.jpg">
+    </noscript>
+    <div class="main_container" tabindex="0">
+      <div class="frame">
+        <ul class="slidee">
+          HERE-COMES-IMAGES
+        </ul>
+      </div>
+      <div class="locations">
+        <div class="som">
+          <span>&#9776;</span>&nbsp;&nbsp;תפריט
+        </div>
+        <ul class="slidee">
+          HERE-COMES-LOCATIONS
+        </ul>
+      </div>
+    </div>
+<!--     <link   href="ext/reset.css" type="text/css" charset="utf-8" rel="stylesheet" />
+    <link   href="assets/wedding.css" type="text/css" charset="utf-8" rel="stylesheet" />
+ -->    
+    <style>html, body { display: block; }</style>
+    HERE-COMES-JS    
+    <link   href="ext/Carmelit_April13/stylesheet.css" type="text/css" charset="utf-8" rel="stylesheet" />
+
+  </body>
+</html>
