@@ -9,13 +9,26 @@ $(function(){
       return false;
     }
     var $this = e, 
-        $img = $this.find('img.photo'),
-        $video;
+        $img = $this.find('img.photo');
 
     if ($img[0]) {
-      $img.attr({src: $img.attr('data-src')});
-    } else if ($video = $this.find('video[data-video-click-to-play!=TRUE]')[0]) {
-      $video.play()
+      var video = $img.attr('data-video'),
+          src   = $img.attr('data-src');
+      if (video) {
+        var sources = '<source src="' + video.replace('.mp4','.webm') + '" type="video/webm"><source src="' + video.replace('.mp4','.theora.ogv') + '" type="video/mp4">';
+
+        if ($img.attr('data-video-click-to-play')) {
+          var video_html = '<video data-video-click-to-play="TRUE" height="100%" poster="' + src + '">' + sources + '</video>';
+        } else {
+          var video_html = '<video height="100%" autoplay loop>' + sources +'</video>';
+        }
+
+        $this.append(video_html);
+        $img.attr({'data-video': '', 'data-src': ''});
+      } else if (src) {
+        $img.attr({src: src});
+      }
+
     }
     
   }

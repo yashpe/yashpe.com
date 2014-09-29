@@ -68,9 +68,16 @@ body {
   padding-left: 4px;
 }
 */
-.frame .slidee img.photo, .frame .slidee video {
+.frame .slidee img.photo {
   display: block;
   height: 100%;
+}
+.frame .slidee video {
+  display: block;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left:0;
 }
 
 a.piner {
