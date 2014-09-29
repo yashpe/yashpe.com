@@ -1,7 +1,7 @@
 .DS_Store
-.git/*
-.DS_Store
-node_modules/
+.git
+sq.js
+kalev/node_modules
 kalev/.dropbox
 kalev/small-images
 kalev/small-images-base64
