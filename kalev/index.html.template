@@ -4,13 +4,13 @@
   <head>
     <title>מיכל ודור 16.5.14</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta content="medium-images/0285.jpg" property="og:image" />
-    <meta content="website" property="og:type">
-    <meta property="og:title" content="החתונה הקסומה של מיכל ודור">
-    <meta property="og:url" content="http://www.yashpe.com/kalev/">
-    <meta name="twitter:url" content="http://www.yashpe.com/kalev/">
-    <link   rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
-    <link   rel="icon" href="assets/favicon.png" type="image/x-icon">
+    <meta property="og:url"   content="http://www.yashpe.com/kalev/" />
+    <meta property="og:type"  content="website" />
+    <meta property="og:title" content="החתונה הקסומה של מיכל ודור" />
+    <meta property="og:image" content="http://www.yashpe.com/kalev/medium-images/0285.jpg" />
+    <meta name="twitter:url"  content="http://www.yashpe.com/kalev/" />
+    <link   rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+    <link   rel="icon" href="assets/favicon.png" type="image/x-icon" />
 
     HERE-COMES-CSS
 
