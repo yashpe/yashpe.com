@@ -58,9 +58,7 @@ $(function(){
   var subjects = $('.subjects .slidee');
   var locations = $('.locations');
 
-  var production = top.location.href.indexOf('yashpe.com/kalev') > -1;
-
-  if (production) {
+  if (top.location.href.indexOf('www.yashpe.com/kalev') > -1) { // production
     $('.frame .slidee li img[title!=""]').attr('title','');
   }
   slidee.on('click', 'video[data-video-click-to-play=TRUE]', function(){
@@ -117,8 +115,10 @@ $(function(){
   setTimeout(doRepaint,0);
 });
 
-// (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-// ga('create', 'UA-54999453-1', 'auto');
-// ga('send', 'pageview');
+if (top.location.href.indexOf('www.yashpe.com/kalev') > -1) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-54999453-1', 'auto');
+  ga('send', 'pageview');  
+}
 
 
