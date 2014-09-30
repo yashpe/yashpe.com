@@ -73,22 +73,13 @@ $(function(){
     }
     jump_to($(this));
   })
-
-  // slidee.on('click', 'video[data-video-click-to-play=TRUE]', function(){
-  //   $(this).attr('controls', 'controls');
-  //   $('#mplayer audio')[0].pause();
-  //   this.onended = function(e) {
-  //     $('#mplayer audio')[0].play();
-  //   }
-  //   this.play();
-  // });
     
 	locations.on('click', 'li', function(e){
 	  var new_pos = $('.frame li[data-location=' + $(this).attr('data-location') + ']').first();
     jump_to(new_pos);
 	});
 
-  slidee.on('mouseenter ontouchstart', 'li', function(){ lazy_loader(this) });
+  slidee.on('mouseenter touchmove', 'li', function(){ lazy_loader(this) });
 
   $(document).keydown(function(e) {
     if (e.keyCode == 37 || e.keyCode == 38) { // left
