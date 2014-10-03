@@ -51,35 +51,34 @@ $(function(){
     $(new_pos).scrollToPos()
   }
 
-  jump_to($('.frame li.selected'))
-
   var win = $(window);
   var frame = $('.frame');
   var slidee = $('.frame .slidee');
   var subjects = $('.subjects .slidee');
   var locations = $('.locations');
-
+  var body = $('body');
   var leftArrow = $('<div class="arrow left_arrow"><span>&gt;</span></div>'),
       rightArrow = $('<div class="arrow right_arrow"><span>&lt;</span></div>')
-  frame.append(leftArrow).append(rightArrow)
+  
+  body.append(leftArrow).append(rightArrow)
+  
   var timeout;
-  frame.on('mousedown', '.arrow', function() {
-    var that = $(this);
-    timeout = setInterval(function() {
-      if (that.hasClass('left_arrow')) {
-        delta = -10;
-      } else {
-        delta = 10;
-      }
-      win.scrollLeft(win.scrollLeft() + delta);
-    }, 5);
+  
+  body.on('mousedown', '.arrow', function() {
+    var that = $(this),
+        dir = that.hasClass('left_arrow') ? 'next' : 'prev',
+        jumper = function() {
+          jump_to($('.frame ul.slidee li.selected')[dir]());
+        };
+    jumper();
+    timeout = setInterval(jumper, 900);
   });
 
-  frame.on('mouseup', function() {
+  body.on('mouseup', function() {
     clearInterval(timeout);
   })
 
-  frame.on('mouseout', function() {
+  body.on('mouseout', function() {
     clearInterval(timeout);
   })
 

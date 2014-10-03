@@ -31,23 +31,26 @@ body {
 /* arrows */ 
 .arrow {
   width: 30px;
-  height: 40px;  
-  background-color: black;
+  height: 47px;  
+  /*background-color: black;*/
   -webkit-transition: opacity 0.25s ease-in-out;
   -moz-transition: opacity 0.25s ease-in-out;
   -ms-transition: opacity 0.25s ease-in-out;
   -o-transition: opacity 0.25s ease-in-out;
   transition: opacity 0.25s ease-in-out;
+
   opacity: 0.2;
   filter: alpha(opacity=0.2);
 
   cursor: pointer;
+  background: url('arrows.png') no-repeat left top;
 }
 .arrow:hover {
-  opacity: 0.4;
-  filter: alpha(opacity=0.4);
+  opacity: 1;
+  filter: alpha(opacity=1);
 }
 .arrow span {
+  display: none;
   font-size: 30px;
   color: white;
   position: absolute;
@@ -55,16 +58,18 @@ body {
   left: 6px;
 }
 .left_arrow {
+  background-position: 2px;
   position: fixed;
   top: 50%;
   left: 0;
-  border-radius: 0 5px 5px 0;
+  /*border-radius: 0 5px 5px 0;*/
 }
 .right_arrow {
+  background-position: -55px;
   position: fixed;
   top: 50%;
   right: 242px;
-  border-radius: 5px 0 0 5px;
+  /*border-radius: 5px 0 0 5px;*/
 }
 .right_arrow span {
   left: 11px;
