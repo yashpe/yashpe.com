@@ -43,7 +43,7 @@ body {
   filter: alpha(opacity=0.2);
 
   cursor: pointer;
-  background: url('arrows.png') no-repeat left top;
+  background: url('http://www.yashpe.com/kalev/assets/arrows.png') no-repeat left top;
 }
 .arrow:hover {
   opacity: 1;
