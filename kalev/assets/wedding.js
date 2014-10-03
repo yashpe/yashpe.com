@@ -53,10 +53,36 @@ $(function(){
 
   jump_to($('.frame li.selected'))
 
+  var win = $(window);
   var frame = $('.frame');
   var slidee = $('.frame .slidee');
   var subjects = $('.subjects .slidee');
   var locations = $('.locations');
+
+  var leftArrow = $('<div class="arrow left_arrow"><span>&gt;</span></div>'),
+      rightArrow = $('<div class="arrow right_arrow"><span>&lt;</span></div>')
+  frame.append(leftArrow).append(rightArrow)
+  var timeout;
+  frame.on('mousedown', '.arrow', function() {
+    var that = $(this);
+    timeout = setInterval(function() {
+      if (that.hasClass('left_arrow')) {
+        delta = -10;
+      } else {
+        delta = 10;
+      }
+      win.scrollLeft(win.scrollLeft() + delta);
+    }, 5);
+  });
+
+  frame.on('mouseup', function() {
+    clearInterval(timeout);
+  })
+
+  frame.on('mouseout', function() {
+    clearInterval(timeout);
+  })
+
 
   if (top.location.href.indexOf('www.yashpe.com/kalev') > -1) { // production
     $('.frame .slidee li img[title!=""]').attr('title','');
@@ -92,11 +118,13 @@ $(function(){
     }
   });
 
-  var win = $(window);
-
+  var scrollPace = 40;
+  if (navigator.appVersion.indexOf("Mac")!=-1) {
+    scrollPace = 1;
+  }
   frame.on('mousewheel', function(event) {
     event.preventDefault();
-    win.scrollLeft(win.scrollLeft() - event.deltaY + event.deltaX)
+    win.scrollLeft(win.scrollLeft() - (event.deltaY + event.deltaX) * scrollPace);
   });
 
 });

@@ -28,6 +28,49 @@ body {
 .frame {
   height: 100%;
 }
+/* arrows */ 
+.arrow {
+  width: 30px;
+  height: 40px;  
+  background-color: black;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  -moz-transition: opacity 0.25s ease-in-out;
+  -ms-transition: opacity 0.25s ease-in-out;
+  -o-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.2;
+  filter: alpha(opacity=0.2);
+
+  cursor: pointer;
+}
+.arrow:hover {
+  opacity: 0.4;
+  filter: alpha(opacity=0.4);
+}
+.arrow span {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  top: 8px;
+  left: 6px;
+}
+.left_arrow {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  border-radius: 0 5px 5px 0;
+}
+.right_arrow {
+  position: fixed;
+  top: 50%;
+  right: 242px;
+  border-radius: 5px 0 0 5px;
+}
+.right_arrow span {
+  left: 11px;
+}
+/* arrows end */ 
+
 /*.frame {
   top: 0;
   z-index: 0;
@@ -130,6 +173,7 @@ a.piner img {
   transition: opacity 1s ease-in-out;
 
   top: 0;
+  width: 200px;
   /*height: 100%;*/
   bottom: 0;
   right: 0;
@@ -199,6 +243,9 @@ li#mplayer audio {
 }
 
 @media only screen and (max-width : 400px) and (orientation : portrait) {
+  .arrow {
+    display: none;
+  }
 
   .locations {
     -webkit-transition: max-height 0.8s;
@@ -245,6 +292,9 @@ li#mplayer audio {
 }
 
 @media only screen and (min-width : 400px) and (max-height: 510px) {
+  .arrow {
+    display: none;
+  }
   .som span {
     display: inline;
   }
