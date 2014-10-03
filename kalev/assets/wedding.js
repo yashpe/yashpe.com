@@ -123,7 +123,7 @@ $(function(){
   }
   frame.on('mousewheel', function(event) {
     event.preventDefault();
-    win.scrollLeft(win.scrollLeft() - (event.deltaY + event.deltaX) * scrollPace);
+    win.scrollLeft(win.scrollLeft() + (event.deltaX - event.deltaY) * scrollPace);
   });
 
 });
