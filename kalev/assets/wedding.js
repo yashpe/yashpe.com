@@ -99,7 +99,7 @@ $(function(){
     jump_to($(this));
   })
     
-	locations.on('click', 'li', function(e){
+	locations.on('click', 'li[data-location]', function(e){
 	  var new_pos = $('.frame li[data-location=' + $(this).attr('data-location') + ']').first();
     jump_to(new_pos);
 	});
