@@ -17,14 +17,14 @@
     <style>html, body { display: none; }</style>
     <script>
       if ( !navigator.userAgent.match(/(iPad|iPhone|iPod)/g) && navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
-        if (confirm("דפדפן ספארי? לחץ כאן כדי להתקין דפדפן כרום ולהיות מאושר לנצח.")) {
-          top.location.href = "https://www.google.com/chrome/browser/";
+        if (confirm("דפדפן ספארי? לחץ כאן כדי להתקין דפדפן פיירפוקס ולהיות מאושר לנצח.")) {
+          top.location.href = "https://www.mozilla.org/en-US/firefox/new/";
         }    
         document.write("");
       }
       if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
-        if (confirm("דפדפן אינטאנט אקספלורר? לחץ כאן כדי להתקין דפדפן כרום ולהיות מאושר לנצח.")) {
-          top.location.href = "https://www.google.com/chrome/browser/";
+        if (confirm("דפדפן אינטאנט אקספלורר? לחץ כאן כדי להתקין דפדפן פיירפוקס ולהיות מאושר לנצח.")) {
+          top.location.href = "https://www.mozilla.org/en-US/firefox/new/";
         }    
         // $('body').html('<div style="font-size: 40px; direction: rtl;color:white;">דפדפן Internet Explorer לא נתמך.<br/>לצפיה השתמשי ב <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> או <a href="https://www.google.com/chrome/browser/">Chrome</a>.<br/><br/>כדאי לך...</div>');
         document.write("");
@@ -37,9 +37,7 @@
     </script>
   </head>
   <body>
-    <noscript>
-      <img src="medium-images/0285.jpg">
-    </noscript>
+    <div class="welcome_message"></div>
     <div class="main_container" tabindex="0">
       <div class="frame">
         <ul class="slidee">
@@ -55,12 +53,11 @@
         </ul>
       </div>
     </div>
-<!--     <link   href="ext/reset.css" type="text/css" charset="utf-8" rel="stylesheet" />
-    <link   href="assets/wedding.css" type="text/css" charset="utf-8" rel="stylesheet" />
- -->    
     <style>html, body { display: block; }</style>
     HERE-COMES-JS    
     <link   href="ext/Carmelit_April13/stylesheet.css" type="text/css" charset="utf-8" rel="stylesheet" />
+    <div class="arrow left_arrow"><span>&gt;</span></div>
+    <div class="arrow right_arrow"><span>&lt;</span></div>
 
   </body>
 </html>

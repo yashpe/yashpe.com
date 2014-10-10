@@ -21,7 +21,18 @@ body {
   top: 1px;    
 }
 
+.welcome_message {
+  position: fixed;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  height: 100%;
+  width: 100%;
+  background: url('http://www.yashpe.com/kalev/medium-images/0285.jpg') no-repeat left top;
+}
 .main_container {
+  display: none;
   height: 100%;
 }
 
@@ -30,6 +41,7 @@ body {
 }
 /* arrows */ 
 .arrow {
+  display: none;
   width: 30px;
   height: 47px;  
   /*background-color: black;*/

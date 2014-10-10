@@ -22,6 +22,7 @@ new compressor.minify({
 new compressor.minify({
     type: 'yui-css',
     fileIn: ["ext/reset.css",
+            "assets/animate.css",
              "assets/wedding.css"],
     fileOut: 'assets/base-min-yui.css',
     callback: function(err, min){

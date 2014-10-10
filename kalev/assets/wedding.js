@@ -1,11 +1,55 @@
 $(function(){
+  // $('.frame ul.slidee li').on('load', 'img', function() {console.log(this)});
+
+  var win = $(window);
+  var frame = $('.frame');
+  var slidee = $('.frame .slidee');
+  var locations = $('.locations');
+  var main_container = $('.main_container');
+  var welcome_message = $('.welcome_message');
+  var audio = $('#mplayer audio')[0];
+  var arrows = $('.arrow');
+  var body = $('body');
+  var timeout;
+
   window.onbeforeunload = function() {
     return "לצאת?";
   };
 
+  // jump_to_loc_by_hash = function() {
+  //   if (window.location.hash != '') {
+  //     var np = frame.find('li[data-location="' + window.location.hash.replace("#","") + '"]').first();
+  //     if (np[0]) {
+  //       setTimeout(function() { jump_to(np) }, 3000);
+  //     }
+
+  //   }
+  // }
+  welcome = function() {
+    if (localStorage.getItem('been_here') == 'true' && window.location.hash != '#d') {
+      main_container.show();
+      welcome_message.hide();
+      arrows.show();
+      audio.play();
+    } else {
+      localStorage.setItem('been_here', 'true');
+      welcome_message.on('click', function() {
+        main_container.show();
+        arrows.show();
+        welcome_message.addClass('animated bounceOutRight');
+        audio.play();
+      });
+    }
+  };
+
+  do_load = function() {
+    var nop = $('.frame ul.slidee li.preloaded').first();
+    // console.log('load');
+    single_photo_lazy_loader(nop);
+  }
   var single_photo_lazy_loader = function(e) {
 
-    if (e[0] == undefined) { 
+    if (e[0] == undefined || !e.hasClass('preloaded')) {
       return false;
     }
     var $this = e, 
@@ -25,13 +69,24 @@ $(function(){
 
         $this.append(video_html);
         $img.attr({'data-video': '', 'data-src': ''});
+        e.removeClass('preloaded');
+        window.do_load();
       } else if (src) {
-        $img.attr({src: src});
+        var big_img = $('<img src="' + src + '" class="photo" />');
+        big_img.on('load', function(){ 
+          $img.replaceWith(big_img);
+          e.removeClass('preloaded');
+          window.do_load();
+        });
       }
-
+      e.removeClass('preloaded');
+    } else {
+      window.do_load();
     }
-    
   }
+
+  do_load();
+
   var lazy_loader = function(e) {
     var $this = $(e);
 
@@ -42,6 +97,9 @@ $(function(){
     single_photo_lazy_loader($this.prev().prev());
 
     $('.locations ul.slidee li[data-location=' + $this.attr('data-location') +']').addClass('selected').siblings().removeClass('selected');
+
+    // window.location.hash = $this.attr('data-location');
+    console.log($this[0]);
     $this.addClass('selected').siblings().removeClass('selected');
   };
 
@@ -51,19 +109,6 @@ $(function(){
     $(new_pos).scrollToPos()
   }
 
-  var win = $(window);
-  var frame = $('.frame');
-  var slidee = $('.frame .slidee');
-  var subjects = $('.subjects .slidee');
-  var locations = $('.locations');
-  var body = $('body');
-  var leftArrow = $('<div class="arrow left_arrow"><span>&gt;</span></div>'),
-      rightArrow = $('<div class="arrow right_arrow"><span>&lt;</span></div>')
-  
-  body.append(leftArrow).append(rightArrow)
-  
-  var timeout;
-  
   body.on('mousedown', '.arrow', function() {
     var that = $(this),
         dir = that.hasClass('left_arrow') ? 'next' : 'prev',
@@ -86,13 +131,14 @@ $(function(){
   if (top.location.href.indexOf('www.yashpe.com/kalev') > -1) { // production
     $('.frame .slidee li img[title!=""]').attr('title','');
   }
+
   slidee.on('click', 'li', function(){
     var video = $(this).find('video[data-video-click-to-play=TRUE]')
     if (video[0]) {
       video.attr('controls', 'controls');
-      $('#mplayer audio')[0].pause();
+      audio.pause();
       video[0].onended = function(e) {
-        $('#mplayer audio')[0].play();
+        audio.play();
       }
       video[0].play();
     }
@@ -125,6 +171,8 @@ $(function(){
     event.preventDefault();
     win.scrollLeft(win.scrollLeft() + (event.deltaX - event.deltaY) * scrollPace);
   });
+
+  welcome();
 
 });
 
