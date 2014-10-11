@@ -44,6 +44,7 @@ body {
 }
 /* arrows */ 
 .arrow {
+  z-index: 1;
   width: 30px;
   height: 47px;  
   /*background-color: black;*/

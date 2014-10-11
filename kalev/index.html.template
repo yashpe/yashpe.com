@@ -15,10 +15,11 @@
     HERE-COMES-CSS
 
     <script>
-      if (localStorage.getItem('been_here') == 'true' && window.location.hash != '#d') {
+      var show_welcome_message = localStorage.getItem('been_here') == 'true' && window.location.hash != '#d';
+      if (show_welcome_message) {
         document.write("<style> .welcome_message { display: none;} </style>")
       } else {
-        // document.write("<style> .main_container { display: none;} </style>");
+        document.write("<style> .main_container { display: none;} </style>");
       }
       if ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ) {
         if (confirm("דפדפן ספארי? לחץ כאן כדי להתקין דפדפן כרום ולהיות מאושר לנצח.")) {
@@ -46,6 +47,8 @@
   <body>
     <div class="welcome_message"><img src="medium-images/0285.jpg" /></div>
     <link href="ext/Carmelit_April13/stylesheet.css" type="text/css" charset="utf-8" rel="stylesheet" />
+    <div class="arrow left_arrow"></div>
+    <div class="arrow right_arrow"></div>
     <div class="main_container" tabindex="0">
       <div class="frame">
         <ul class="slidee">
@@ -61,8 +64,12 @@
         </ul>
       </div>
     </div>
-    <div class="arrow left_arrow"></div>
-    <div class="arrow right_arrow"></div>
+    <script>
+      if (!show_welcome_message) {
+        document.write("<style> .main_container { display: block;} </style>");
+      }
+    </script>
+
     HERE-COMES-JS    
   </body>
 </html>
