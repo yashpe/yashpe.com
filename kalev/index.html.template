@@ -11,23 +11,30 @@
     <meta name="twitter:url"  content="http://www.yashpe.com/kalev/" />
     <link   rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
     <link   rel="icon" href="assets/favicon.png" type="image/x-icon" />
-
+    
     HERE-COMES-CSS
 
-    <style>html, body { display: none; }</style>
     <script>
-      if ( !navigator.userAgent.match(/(iPad|iPhone|iPod)/g) && navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+      if (localStorage.getItem('been_here') == 'true' && window.location.hash != '#d') {
+        document.write("<style> .welcome_message { display: none;} </style>")
+      } else {
+        // document.write("<style> .main_container { display: none;} </style>");
+      }
+      if ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ) {
+        if (confirm("דפדפן ספארי? לחץ כאן כדי להתקין דפדפן כרום ולהיות מאושר לנצח.")) {
+          top.location.href = "https://itunes.apple.com/us/app/chrome-web-browser-by-google/id535886823?mt=8";
+        }
+      }
+      if ( navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
         if (confirm("דפדפן ספארי? לחץ כאן כדי להתקין דפדפן פיירפוקס ולהיות מאושר לנצח.")) {
           top.location.href = "https://www.mozilla.org/en-US/firefox/new/";
         }    
-        document.write("");
+        
       }
       if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
         if (confirm("דפדפן אינטאנט אקספלורר? לחץ כאן כדי להתקין דפדפן פיירפוקס ולהיות מאושר לנצח.")) {
           top.location.href = "https://www.mozilla.org/en-US/firefox/new/";
         }    
-        // $('body').html('<div style="font-size: 40px; direction: rtl;color:white;">דפדפן Internet Explorer לא נתמך.<br/>לצפיה השתמשי ב <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> או <a href="https://www.google.com/chrome/browser/">Chrome</a>.<br/><br/>כדאי לך...</div>');
-        document.write("");
       }
 
       window.preload = function(f,h) {
@@ -37,7 +44,8 @@
     </script>
   </head>
   <body>
-    <div class="welcome_message"></div>
+    <div class="welcome_message"><img src="medium-images/0285.jpg" /></div>
+    <link href="ext/Carmelit_April13/stylesheet.css" type="text/css" charset="utf-8" rel="stylesheet" />
     <div class="main_container" tabindex="0">
       <div class="frame">
         <ul class="slidee">
@@ -53,11 +61,8 @@
         </ul>
       </div>
     </div>
-    <style>html, body { display: block; }</style>
+    <div class="arrow left_arrow"></div>
+    <div class="arrow right_arrow"></div>
     HERE-COMES-JS    
-    <link   href="ext/Carmelit_April13/stylesheet.css" type="text/css" charset="utf-8" rel="stylesheet" />
-    <div class="arrow left_arrow"><span>&gt;</span></div>
-    <div class="arrow right_arrow"><span>&lt;</span></div>
-
   </body>
 </html>

@@ -3,5 +3,7 @@
 sq.js
 kalev/node_modules
 kalev/.dropbox
+kalev/index.html.template
+kalev/medium-images-base64
 kalev/small-images
 kalev/small-images-base64

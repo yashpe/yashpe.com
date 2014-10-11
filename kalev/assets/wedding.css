@@ -22,17 +22,20 @@ body {
 }
 
 .welcome_message {
+  z-index: 100;
   position: fixed;
   cursor: pointer;
   top: 0;
   left: 0;
-  z-index: 200;
   height: 100%;
   width: 100%;
-  background: url('http://www.yashpe.com/kalev/medium-images/0285.jpg') no-repeat left top;
+}
+.welcome_message img{
+  left: 0;
+  position: absolute;
+
 }
 .main_container {
-  display: none;
   height: 100%;
 }
 
@@ -41,7 +44,6 @@ body {
 }
 /* arrows */ 
 .arrow {
-  display: none;
   width: 30px;
   height: 47px;  
   /*background-color: black;*/
@@ -62,7 +64,6 @@ body {
   filter: alpha(opacity=1);
 }
 .arrow span {
-  display: none;
   font-size: 30px;
   color: white;
   position: absolute;
@@ -196,7 +197,6 @@ a.piner img {
   right: 0;
   background-color: #111;
   padding: 20px;
-  z-index: 1;
   position: fixed;
 }
 
@@ -259,7 +259,7 @@ li#mplayer audio {
   margin-bottom: 20px;
 }
 
-@media only screen and (max-width : 400px) and (orientation : portrait) {
+@media only screen and (max-width : 414px) and (orientation : portrait) {
   .arrow {
     display: none;
   }
@@ -306,9 +306,15 @@ li#mplayer audio {
     font-size: 23px;
     padding: 1px;
   }
+  .welcome_message img{
+    width: 200%;
+  } 
 }
 
-@media only screen and (min-width : 400px) and (max-height: 510px) {
+@media only screen and (min-width : 414px) and (max-height: 510px) {
+  .welcome_message img{
+    width: 100%;
+  } 
   .arrow {
     display: none;
   }
