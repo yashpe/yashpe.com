@@ -42,11 +42,11 @@ $(function(){
 
   welcome();
 
-  do_load = function() {
-    var nop = $('.frame ul.slidee li.preloaded').first();
-    // console.log('load');
-    single_photo_lazy_loader(nop);
-  }
+  // do_load = function() {
+  //   var nop = $('.frame ul.slidee li.preloaded').first();
+  //   // console.log('load');
+  //   single_photo_lazy_loader(nop);
+  // }
   var single_photo_lazy_loader = function(e) {
 
     if (e[0] == undefined || !e.hasClass('preloaded')) {
@@ -70,22 +70,22 @@ $(function(){
         $this.append(video_html);
         $img.attr({'data-video': '', 'data-src': ''});
         e.removeClass('preloaded');
-        window.do_load();
+        // window.do_load();
       } else if (src) {
         var big_img = $('<img src="' + src + '" class="photo" />');
         big_img.on('load', function(){ 
           $img.replaceWith(big_img);
           e.removeClass('preloaded');
-          window.do_load();
+          // window.do_load();
         });
       }
       e.removeClass('preloaded');
     } else {
-      window.do_load();
+      // window.do_load();
     }
   }
 
-  do_load();
+  // do_load();
 
   var lazy_loader = function(e) {
     var $this = $(e);
@@ -113,7 +113,7 @@ $(function(){
     var that = $(this),
         dir = that.hasClass('left_arrow') ? 'next' : 'prev',
         jumper = function() {
-          jump_to($('.frame ul.slidee li.selected')[dir]());
+          jump_to($('.frame .slidee > div.selected')[dir]());
         };
     jumper();
     timeout = setInterval(jumper, 900);
@@ -129,10 +129,10 @@ $(function(){
 
 
   if (top.location.href.indexOf('www.yashpe.com/kalev') > -1) { // production
-    $('.frame .slidee li img[title!=""]').attr('title','');
+    $('.frame .slidee img[title!=""]').attr('title','');
   }
 
-  slidee.on('click', 'li', function(){
+  slidee.on('click', 'div', function(){
     var video = $(this).find('video[data-video-click-to-play=TRUE]')
     if (video[0]) {
       video.attr('controls', 'controls');
@@ -146,20 +146,20 @@ $(function(){
   })
     
 	locations.on('click', 'li[data-location]', function(e){
-	  var new_pos = $('.frame li[data-location=' + $(this).attr('data-location') + ']').first();
+	  var new_pos = $('.frame [data-location=' + $(this).attr('data-location') + ']').first();
     jump_to(new_pos);
 	});
 
-  slidee.on('mouseenter touchmove', 'li', function(){ lazy_loader(this) });
+  slidee.on('mouseenter touchmove', 'div', function(){ lazy_loader(this) });
 
   $(document).keydown(function(e) {
     if (e.keyCode == 37 || e.keyCode == 38) { // left
       e.preventDefault();
-      jump_to($('.frame ul.slidee li.selected').next());
+      jump_to($('.frame .slidee > div.selected').next());
 
     } else if(e.keyCode == 39 || e.keyCode == 40) { // right
       e.preventDefault();
-      jump_to($('.frame ul.slidee li.selected').prev());
+      jump_to($('.frame .slidee > div.selected').prev());
     }
   });
 
@@ -167,30 +167,13 @@ $(function(){
   if (navigator.appVersion.indexOf("Mac")!=-1) {
     scrollPace = 1;
   }
-  frame.on('mousewheel', function(event) {
+
+  $(document).on('mousewheel', function(event) {
     event.preventDefault();
-    win.scrollLeft(win.scrollLeft() + (event.deltaX - event.deltaY) * scrollPace);
+    frame.scrollLeft(frame.scrollLeft() + (event.deltaX - event.deltaY));
   });
 
 
-});
-
-// fix resizing
-$(function(){
-  var el = $('.slidee ')[0];
-  
-  $(window).on('resize.repaint', _.throttle( doRepaint, 500));
-
-  function doRepaint(){
-    el.style.fontSize = '1px';
-    document.documentElement.style.height = '0';
-    setTimeout(function(){
-      el.removeAttribute('style');
-      document.documentElement.style.height = '100%';
-    },50);
-  }
-  
-  setTimeout(doRepaint,0);
 });
 
 if (top.location.href.indexOf('www.yashpe.com/kalev') > -1) {

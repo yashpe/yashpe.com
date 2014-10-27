@@ -4,7 +4,6 @@ html {
 }
 body {
   height: 100%;
-  direction: rtl;
   text-align: right;
   font-family: 'carmelit_regularregular';
   background-color: black;
@@ -36,11 +35,9 @@ body {
 
 }
 .main_container {
+  /*height: 100%;*/
   height: 100%;
-}
-
-.frame {
-  height: 100%;
+  direction: rtl;
 }
 /* arrows */ 
 .arrow {
@@ -58,7 +55,7 @@ body {
   filter: alpha(opacity=0.2);
 
   cursor: pointer;
-  background: url('http://www.yashpe.com/kalev/assets/arrows.png') no-repeat left top;
+
 }
 .arrow:hover {
   opacity: 1;
@@ -100,7 +97,7 @@ body {
 
 */
 .frame {
-  height: 100%;
+  /*height: 100%;*/
 /*  bottom: 0;
   left: 0;
   overflow-x: scroll;
@@ -109,34 +106,42 @@ body {
   right: 0;
   top: 0;
   z-index: 0;
-*/}
+*/
+  height: 100%;
+  overflow: hidden;
+
+}
 
 .frame .slidee {
+  /*border: 14px solid grey;*/
+  overflow: scroll;
+  width: 1000000px;
   height: 100%;
-  font-size: 0;
-  white-space: nowrap;
 }
-.frame .slidee li {
-  vertical-align: top;
-  display: inline-block;
+.frame .slidee > div {  
+  /*display: table-cell;*/
+  /*border: 5px solid red;*/
+  /*vertical-align: top;*/
+  float: right;
   position: relative;
   color: white;
   padding: 0 2px;
   /*float: right;*/
   height: 100%;
+  display: inline-block;
 }
 
 /*.frame .slidee li:nth-last-child(1) {
   padding-left: 4px;
 }
 */
-.frame .slidee img.photo {
-  display: block;
+.frame .slidee > div img.photo {
+  /*border: 4px solid green;*/
+  display: inline-block;
   height: 100%;
 }
-.frame .slidee video {
-  display: block;
-  height: 100%;
+.frame .slidee > div video {
+  /*height: 100%;*/
   position: absolute;
   top:0;
   left:0;
@@ -152,10 +157,7 @@ a.piner {
   height: 35px;
   padding: 0;
   margin: 10px;
-}
-a.piner img {
-  margin: 0;
-  padding: 0;  
+
   -webkit-transition: opacity 1s ease-in-out;
   -moz-transition: opacity 1s ease-in-out;
   -ms-transition: opacity 1s ease-in-out;
@@ -164,18 +166,14 @@ a.piner img {
   opacity: 0;
   filter: alpha(opacity=0);
 
-  width: 35px;
-  height: 35px;
 }
 
-.frame .slidee li:hover a.piner img {
+.frame .slidee > div:hover a.piner {
   opacity: 0.5;
   filter: alpha(opacity=50);
 }
 
-.frame .slidee li:hover a.piner:hover {
-}
-.frame .slidee li:hover a.piner:hover img {
+.frame .slidee > div:hover a.piner:hover {
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -248,6 +246,11 @@ li#mplayer audio {
   opacity: 1;
 }
 
+.locations .slidee li > a {
+  color: white;
+  text-decoration: none;  
+  font-size: 24px;
+}
 .thanks {
   color: white;
   padding: 15px;

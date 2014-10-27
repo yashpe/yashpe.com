@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html lang="en">
+  <head>
+    <title>מיכל ודור 16.5.14</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta property="og:url"   content="http://www.yashpe.com/kalev/" />
+    <meta property="og:type"  content="website" />
+    <meta property="og:title" content="החתונה הקסומה של מיכל ודור" />
+    <meta property="og:image" content="http://www.yashpe.com/kalev/medium-images/0285.jpg" />
+    <meta name="twitter:url"  content="http://www.yashpe.com/kalev/" />
+    <link   rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+    <link   rel="icon" href="assets/favicon.png" type="image/x-icon" />
+    <style>
+    .arrow { 
+      background: url("data:image/png;base64,<%=  File.read("assets/arrows.png.base64").gsub("\n",'') %>") no-repeat left top;
+    }
+    .piner {
+      /*border: 1px solid red;*/
+      background: url("data:image/png;base64,<%=  File.read("assets/facebook.png.base64").gsub("\n",'') %>") no-repeat;
+    }
+    </style>
+    <%= stylesheets %>
+
+    <script>
+      var show_welcome_message = localStorage.getItem('been_here') == 'true' && window.location.hash != '#d';
+      if (show_welcome_message) {
+        document.write("<style> .welcome_message { display: none;} </style>")
+      } else {
+        document.write("<style> .main_container { display: none;} </style>");
+      }
+      // if ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ) {
+      //   if (confirm("דפדפן ספארי? לחץ כאן כדי להתקין דפדפן כרום ולהיות מאושר לנצח.")) {
+      //     top.location.href = "https://itunes.apple.com/us/app/chrome-web-browser-by-google/id535886823?mt=8";
+      //   }
+      // }
+      // if ( navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+      //   // if (confirm("דפדפן ספארי? לחץ כאן כדי להתקין דפדפן פיירפוקס ולהיות מאושר לנצח.")) {
+      //     document.write("<a href='https://www.mozilla.org/en-US/firefox/new/'>דפדפן ספארי? לחץ כאן כדי להתקין דפדפן פיירפוקס ולהיות מאושר לנצח.</a>");
+      //   // }    
+        
+      // }
+      if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
+        document.write("<a href='https://www.mozilla.org/en-US/firefox/new/'>דפדפן אינטרנט אקספלורר? לחץ כאן כדי להתקין דפדפן פיירפוקס ולהיות מאושר לנצח.</a>");
+
+        // if (confirm("דפדפן אינטאנט אקספלורר? לחץ כאן כדי להתקין דפדפן פיירפוקס ולהיות מאושר לנצח.")) {
+          // top.location.href = "https://www.mozilla.org/en-US/firefox/new/";
+        // }    
+      }
+
+      window.preload = function(f,h) {
+        if (f == 0) window.original_title = document.title;
+        document.title = (f > h - 10) ? window.original_title : "טען " + f + " מתוך " + h;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="welcome_message"><img src="data:image/jpeg;charset=utf-8;base64,<%= File.read("medium-images-base64/0285.jpg").gsub("\n",'') %>" /></div>
+    <div class="arrow left_arrow"></div>
+    <div class="arrow right_arrow"></div>
+    <div class="main_container" tabindex="0">
+      <div class="frame">
+        <div class="slidee">
+          <%= images_htmls %>
+        </div>
+      </div>
+      <div class="locations">
+        <div class="som">
+          <span>&#9776;</span>&nbsp;&nbsp;תפריט
+        </div>
+        <ul class="slidee">
+          <%= locations_htmls %>
+        </ul>
+      </div>
+    </div>
+    <script>
+      if (!show_welcome_message) {
+        document.write("<style> .main_container { display: block;} </style>");
+      }
+    </script>
+    <%= javascripts %>
+  </body>
+</html>

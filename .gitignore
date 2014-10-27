@@ -1,9 +1,16 @@
 .DS_Store
 *.mp3
 node_modules/
+generator/config
 kalev/medium-images
 kalev/.dropbox
 kalev/archive-images
 kalev/small-images
 kalev/medium-images-base64
 kalev/small-images-base64
+
+kalev/mesiba/index.html.erb
+kalev/mesiba/medium-images
+kalev/mesiba/medium-images-base64
+kalev/mesiba/small-images
+kalev/mesiba/small-images-base64

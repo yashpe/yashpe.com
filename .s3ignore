@@ -1,9 +1,16 @@
 .DS_Store
 .git
 sq.js
+generator
 kalev/node_modules
 kalev/.dropbox
-kalev/index.html.template
+kalev/index.html.erb
 kalev/medium-images-base64
 kalev/small-images
 kalev/small-images-base64
+
+
+kalev/mesiba/index.html.erb
+kalev/mesiba/medium-images-base64
+kalev/mesiba/small-images
+kalev/mesiba/small-images-base64
