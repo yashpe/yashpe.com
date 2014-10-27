@@ -2,6 +2,8 @@
 *.mp3
 node_modules/
 generator/config
+kalev/dev.html
+kalev/index.html
 kalev/medium-images
 kalev/.dropbox
 kalev/archive-images
@@ -9,7 +11,8 @@ kalev/small-images
 kalev/medium-images-base64
 kalev/small-images-base64
 
-kalev/mesiba/index.html.erb
+kalev/mesiba/index.html
+kalev/mesiba/dev.html
 kalev/mesiba/medium-images
 kalev/mesiba/medium-images-base64
 kalev/mesiba/small-images

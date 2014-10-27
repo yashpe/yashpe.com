@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html lang="en">
+  <head>
+  <head>
+    <title>מיכל ודור 16.5.14</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta property="og:url"   content="http://www.yashpe.com/kalev/mesiba/" />
+    <meta property="og:type"  content="website" />
+    <meta property="og:title" content="מסיבת החתונה של מיכל ודור" />
+    <meta property="og:image" content="http://www.yashpe.com/kalev/mesiba/medium-images/DSC_1571.JPG" />
+    <meta name="twitter:url"  content="http://www.yashpe.com/kalev/mesiba/" />
+    <link   rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+    <link   rel="icon" href="assets/favicon.png" type="image/x-icon" />
+    <%= stylesheets %>
+    <style>
+    div.thankyous {
+      background-image: url("data:image/png;base64,<%=  File.read("assets/thankyous.png.base64").gsub("\n",'') %>") ;
+
+    }
+    .piner {
+      /*border: 1px solid red;*/
+      background: url("data:image/png;base64,<%=  File.read("../assets/facebook.png.base64").gsub("\n",'') %>") no-repeat;
+    }
+
+    </style>
+    <script>
+      window.preload = function(f,h) {
+        if (f == 0) window.original_title = document.title;
+        document.title = (f > h - 10) ? window.original_title : "טען " + f + " מתוך " + h;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="arrow left_arrow"></div>
+    <div class="arrow right_arrow"></div>
+
+    <div class="main_container" tabindex="0">
+      <div class="framer">
+        <div class="frame">
+          <div class="slidee">        
+            <%= images_htmls %>
+          </div>
+        </div>
+        <!-- <img class="backi" src="medium-images/DSC_1373.JPG" /> -->
+        <div class="forei">
+          <div class="thankyous"></div>
+        </div>
+      </div>
+    </div>
+
+
+  <div id="mplayer">
+    <audio controls loop autoplay>
+      <source src="<%= PRODUCTION_ASSETS_FOLDER %>/assets/song.ogg" type="audio/ogg">
+      <source src="<%= PRODUCTION_ASSETS_FOLDER %>/assets/song.mp3" type="audio/mp3">
+    </audio>
+  </div>
+
+</div>
+    <%= javascripts %>
+  </body>
+</html>
