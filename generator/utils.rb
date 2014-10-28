@@ -15,8 +15,9 @@ def minimizing_assets!
   "<style>#{File.read(PROJECT_FOLDER + "/assets/base-min-yui.css")}</style>"
 end
 
-def get_docs(spn, username, password)
-  if File.exists?("images_#{spn}.json")
+def get_docs(spn, username, password, optional = nil)
+  force = (optional == "force")
+  if !force && File.exists?("images_#{spn}.json")
     puts "getting data from local json"
     return JSON.load(File.read("images_#{spn}.json")) 
   end

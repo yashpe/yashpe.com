@@ -1,4 +1,6 @@
 #!/usr/bin/ruby 
+# how to use:
+# ./generate.rb email_adderss password ./local/scenario.rb ("force" - optional if you want the images to be re-grabbed)
 require './utils.rb'
 require 'erb'
 require ARGV[2]
@@ -16,7 +18,7 @@ end
 CSS = minimizing_assets!
 
 
-images = get_docs(SHEET, ARGV[0], ARGV[1])
+images = get_docs(SHEET, ARGV[0], ARGV[1], ARGV[3])
 
 images_htmls, locations_htmls = image_htmls(images)
 

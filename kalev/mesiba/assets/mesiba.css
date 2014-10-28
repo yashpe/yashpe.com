@@ -4,11 +4,8 @@ html, body    {
 }
 div.main_container {
   position: relative;
-/*  height: 50%;
-  width: 66%;
-*/  margin: 0 auto;
-height: 100%;
-
+  margin: 0 auto;
+  height: 100%;
 }
 div.framer {
 }
@@ -32,12 +29,12 @@ div.slidee > div {
   height: 100%;
   position: relative;
 }
-div.slidee > div img {
+div.slidee img.photo {
   position: relative;
   height: 100%;
 }
 
-div.forei {
+div.forei { 
   pointer-events:none;
   z-index: 100;
   position: absolute;

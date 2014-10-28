@@ -68,6 +68,7 @@
         var resize_main_container_by_selected_image = function() {
           var image_width = $(".main_container .selected img.photo").first().width();
           main_container.stop().animate({ width: image_width}, 200);
+          $('img.photo').css({height: $('.main_container').height()})
        }
         window.change_selected_callback = resize_main_container_by_selected_image;
         window.repaint_callback = resize_main_container_by_selected_image;

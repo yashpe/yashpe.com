@@ -1,7 +1,7 @@
 .DS_Store
 *.mp3
 node_modules/
-generator/config
+generator/local
 kalev/assets/base-min-gcc.js
 kalev/assets/base-min-yui.css
 kalev/dev.html
