@@ -13,11 +13,11 @@
     <link   rel="icon" href="assets/favicon.png" type="image/x-icon" />
     <style>
     .arrow { 
-      background: url("data:image/png;base64,<%=  File.read("assets/arrows.png.base64").gsub("\n",'') %>") no-repeat left top;
+      background: url("data:image/png;base64,<%=  getf("assets/arrows.png.base64") %>") no-repeat left top;
     }
     .piner {
       /*border: 1px solid red;*/
-      background: url("data:image/png;base64,<%=  File.read("assets/facebook.png.base64").gsub("\n",'') %>") no-repeat;
+      background: url("data:image/png;base64,<%=  getf("assets/facebook.png.base64") %>") no-repeat;
     }
     </style>
     <%= stylesheets %>
@@ -55,7 +55,7 @@
     </script>
   </head>
   <body>
-    <div class="welcome_message"><img src="data:image/jpeg;charset=utf-8;base64,<%= File.read("medium-images-base64/0285.jpg").gsub("\n",'') %>" /></div>
+    <div class="welcome_message"><img src="data:image/jpeg;charset=utf-8;base64,<%= getf("medium-images-base64/0285.jpg") %>" /></div>
     <div class="arrow left_arrow"></div>
     <div class="arrow right_arrow"></div>
     <div class="main_container" tabindex="0">

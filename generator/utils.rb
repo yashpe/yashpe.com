@@ -2,6 +2,11 @@ require 'google_drive'
 require 'json'
 
 WEDDING_UTILS_FOLDER = Dir.pwd
+
+def getf(fn)
+  File.read(fn).gsub("\n",'')
+end
+
 def minimizing_assets!
   puts "minimizing assets"
 

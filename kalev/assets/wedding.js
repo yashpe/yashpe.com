@@ -5,12 +5,13 @@ $(function(){
   var frame = $('.frame');
   var slidee = $('.frame .slidee');
   var locations = $('.locations');
-  var main_container = $('.main_container');
   var welcome_message = $('.welcome_message');
   var audio = $('#mplayer audio')[0];
   var arrows = $('.arrow');
   var body = $('body');
   var timeout;
+
+  window.main_container = $('.main_container');
 
   window.onbeforeunload = function() {
     return "לצאת?";
@@ -86,7 +87,6 @@ $(function(){
   }
 
   // do_load();
-
   var lazy_loader = function(e) {
     var $this = $(e);
 
@@ -98,25 +98,32 @@ $(function(){
 
     $('.locations ul.slidee li[data-location=' + $this.attr('data-location') +']').addClass('selected').siblings().removeClass('selected');
 
-    // window.location.hash = $this.attr('data-location');
-    // console.log($this[0]);
-    $this.addClass('selected').siblings().removeClass('selected');
-  };
-
+  } 
 
   var jump_to = function(new_pos) {
-    lazy_loader(new_pos);
-    $(new_pos).scrollToPos()
+    var $n = $(new_pos);
+
+    lazy_loader($n);
+
+    $n.addClass('selected').siblings().removeClass('selected');
+    
+    if (window.change_selected_callback) window.change_selected_callback();
+    
+    setTimeout(function() {
+      $n.scrollToPos();
+    }, 200);
+
   }
 
   body.on('mousedown', '.arrow', function() {
     var that = $(this),
         dir = that.hasClass('left_arrow') ? 'next' : 'prev',
         jumper = function() {
+          console.log('jumper')
           jump_to($('.frame .slidee > div.selected')[dir]());
         };
     jumper();
-    timeout = setInterval(jumper, 900);
+    timeout = setInterval(jumper, 700);
   });
 
   body.on('mouseup', function() {
@@ -151,15 +158,13 @@ $(function(){
 	});
 
   slidee.on('mouseenter touchmove', 'div', function(){ lazy_loader(this) });
-
+  
+  var keyCodeToDirection = {37: 'next', 38: 'next', 39: 'prev', 40: 'prev'};
+  
   $(document).keydown(function(e) {
-    if (e.keyCode == 37 || e.keyCode == 38) { // left
+    if (dir = keyCodeToDirection[e.keyCode]) {
       e.preventDefault();
-      jump_to($('.frame .slidee > div.selected').next());
-
-    } else if(e.keyCode == 39 || e.keyCode == 40) { // right
-      e.preventDefault();
-      jump_to($('.frame .slidee > div.selected').prev());
+      jump_to($('.frame .slidee > div.selected')[dir]());
     }
   });
 
@@ -167,10 +172,38 @@ $(function(){
   if (navigator.appVersion.indexOf("Mac")!=-1) {
     scrollPace = 1;
   }
-
+  
+  var signToDir = {1: 'prev', '-1': 'next'};
+  
   $(document).on('mousewheel', function(event) {
     event.preventDefault();
-    frame.scrollLeft(frame.scrollLeft() + (event.deltaX - event.deltaY));
+
+    var delta = event.deltaX - event.deltaY,
+        sign = delta > 0 ? 1 : delta == 0 ? 0 : -1,
+        dir = signToDir[sign],
+        final_pos_by_scroll = frame.scrollLeft() + delta,
+        selected = $('.frame .slidee > div.selected'),
+        new_selected = selected,
+        new_pos,
+        final_pos;
+    if (dir == undefined) return false;
+
+    if (new_selected[dir]()) {
+      do {
+        new_selected = new_selected[dir]();
+        new_pos = new_selected.position();
+        final_pos = frame.scrollLeft() + new_pos.left;
+      } while ((dir == 'next' && final_pos_by_scroll < final_pos) || (dir == 'prev' && final_pos_by_scroll > final_pos));
+      
+
+      frame.scrollLeft(final_pos_by_scroll);
+      if (window.koko) clearTimeout(window.koko);
+      window.koko = setTimeout(function(){
+        jump_to(new_selected)
+      }, 300);
+    }
+    // frame.scrollLeft(frame.scrollLeft() + (event.deltaX - event.deltaY));
+    
   });
 
 

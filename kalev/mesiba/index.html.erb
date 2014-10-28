@@ -14,13 +14,17 @@
     <link   rel="icon" href="assets/favicon.png" type="image/x-icon" />
     <%= stylesheets %>
     <style>
+    .arrow { 
+      background: url("data:image/png;base64,<%=  getf("../assets/arrows.png.base64") %>") no-repeat left top;
+    }
+
     div.thankyous {
-      background-image: url("data:image/png;base64,<%=  File.read("assets/thankyous.png.base64").gsub("\n",'') %>") ;
+      background-image: url("data:image/png;base64,<%=  getf("assets/thankyous.png.base64") %>") ;
 
     }
     .piner {
       /*border: 1px solid red;*/
-      background: url("data:image/png;base64,<%=  File.read("../assets/facebook.png.base64").gsub("\n",'') %>") no-repeat;
+      background: url("data:image/png;base64,<%=  getf("../assets/facebook.png.base64") %>") no-repeat;
     }
 
     </style>
@@ -59,5 +63,16 @@
 
 </div>
     <%= javascripts %>
+    <script>
+      $(function() {
+        var resize_main_container_by_selected_image = function() {
+          var image_width = $(".main_container .selected img.photo").first().width();
+          main_container.stop().animate({ width: image_width}, 200);
+       }
+        window.change_selected_callback = resize_main_container_by_selected_image;
+        window.repaint_callback = resize_main_container_by_selected_image;
+      });
+
+    </script>
   </body>
 </html>

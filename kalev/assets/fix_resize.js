@@ -9,6 +9,8 @@ $(function(){
     setTimeout(function(){
       el.removeAttribute('style');
       document.documentElement.style.height = '100%';
+      $('.frame').scrollLeft($('.frame').scrollLeft() + $('.frame div.selected').position().left);
+      if (window.repaint_callback) window.repaint_callback();
     },50);
   }
   

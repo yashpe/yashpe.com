@@ -35,7 +35,7 @@ File.write(PRODUCTION_HTML, index_html)
   
 puts "done"
 
-javscripts = STATIC_JAVASCRIPTS
+javascripts = STATIC_JAVASCRIPTS
 stylesheets = STATIC_STYLESHEETS
 
 print "generating dev.html... "
