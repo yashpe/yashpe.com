@@ -13,11 +13,19 @@
     <link   rel="icon" href="assets/favicon.png" type="image/x-icon" />
     <style>
     .arrow { 
+<<<<<<< HEAD:kalev/index.html.erb
       background: url("data:image/png;base64,<%=  getf("assets/arrows.png.base64") %>") no-repeat left top;
     }
     .piner {
       /*border: 1px solid red;*/
       background: url("data:image/png;base64,<%=  getf("assets/facebook.png.base64") %>") no-repeat;
+=======
+      background: url("data:image/png;base64,<%=  File.read("assets/arrows.png.base64").gsub("\n",'') %>") no-repeat left top;
+    }
+    .piner {
+      /*border: 1px solid red;*/
+      background: url("data:image/png;base64,<%=  File.read("assets/facebook.png.base64").gsub("\n",'') %>") no-repeat;
+>>>>>>> 0f42575758dd2640b44d57d87de77b22d00e3457:kalev/index.html.erb
     }
     </style>
     <%= stylesheets %>
@@ -55,7 +63,11 @@
     </script>
   </head>
   <body>
+<<<<<<< HEAD:kalev/index.html.erb
     <div class="welcome_message"><img src="data:image/jpeg;charset=utf-8;base64,<%= getf("medium-images-base64/0285.jpg") %>" /></div>
+=======
+    <div class="welcome_message"><img src="data:image/jpeg;charset=utf-8;base64,<%= File.read("medium-images-base64/0285.jpg").gsub("\n",'') %>" /></div>
+>>>>>>> 0f42575758dd2640b44d57d87de77b22d00e3457:kalev/index.html.erb
     <div class="arrow left_arrow"></div>
     <div class="arrow right_arrow"></div>
     <div class="main_container" tabindex="0">

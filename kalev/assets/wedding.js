@@ -119,7 +119,6 @@ $(function(){
     var that = $(this),
         dir = that.hasClass('left_arrow') ? 'next' : 'prev',
         jumper = function() {
-          console.log('jumper')
           jump_to($('.frame .slidee > div.selected')[dir]());
         };
     jumper();
